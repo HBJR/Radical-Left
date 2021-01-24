@@ -1,4 +1,4 @@
-ESS <- import("ESS6.dta")
+ESS <- import("Data/ESS6.dta")
 names(ESS)[names(ESS) == "isco08"] <- "iscoco"
 source("get_party.R")
 source("Independent Variables.R")
