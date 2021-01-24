@@ -1,4 +1,4 @@
-ESS <- read.csv("ESS7.csv")
+ESS <- read.csv("Data/ESS7.csv")
 names(ESS)[names(ESS) == "isco08"] <- "iscoco"
 source("get_party.R")
 source("Independent Variables.R")
