@@ -1,4 +1,4 @@
-ESS <- import("ESS1.dta")
+ESS <- import("Data/ESS1.dta")
 source("get_party.R")
 source("Independent Variables.R")
 
