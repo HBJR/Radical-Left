@@ -104,9 +104,15 @@ ethnic.predict <- predict(total.model3, newdata1, type = "response")
 df <- data.frame(threat.seq, ethnic.predict)
 ethnic.threat.plot <- ggplot(df, aes(x=threat.seq, y=ethnic.predict)) +
   geom_point() +
-  labs(x = "Perceived Ethnic Threat", y = "Probability Voting Radical Left") +
-  theme_bw()
-ggsave("Ethnic Threat Plot.png", ethnic.threat.plot, width = 3, height = 3)
+  labs(x = "Perceived Ethnic Threat", y = "Probability Voting Radical Left",
+       caption = 
+        "Note: Predicted probabilites from Table 1's Model 3 with binary
+        variables set to zero, integer variables set at their medians,
+        continuous variables set at their mean, class set to production
+        worker, country set to Czechia, and survey year set to 2002") +
+  theme_bw() +
+  theme(plot.caption = element_text(hjust = 0, size = 10, face = "italic"))
+ggsave("Ethnic Threat Plot.png", ethnic.threat.plot)
 
 newdata2 <- data.frame(
   ethnic.anti.immigrant = median(ESS7.extradata$ethnic.anti.immigrant, na.rm = TRUE),
@@ -136,9 +142,15 @@ jobs.predict <- predict(ESS7.model3, newdata2, type = "response")
 df <- data.frame(threat.seq, jobs.predict)
 jobs.threat.plot <- ggplot(df, aes(x=threat.seq, y=jobs.predict)) +
   geom_point() +
-  labs(x = "Perceived Threat to Jobs", y = "Probability Voting Radical Left")+
-  theme_bw()
-ggsave("Job Threat Plot.png", jobs.threat.plot, width = 3, height = 3)
+  labs(x = "Perceived Threat to Jobs", y = "Probability Voting Radical Left", 
+       caption = 
+       "Note: Predicted probabilites from Table 2's Model 3 with binary
+        variables set to zero, integer variables set at their medians,
+        continuous variables set at their mean, class set to production
+        worker, and country set to Czechia")+
+  theme_bw() +
+  theme(plot.caption = element_text(hjust = 0, size = 10, face = "italic"))
+ggsave("Job Threat Plot.png", jobs.threat.plot)
 
 
 #-----------Robustness Checks------
